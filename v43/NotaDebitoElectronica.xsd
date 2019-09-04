@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by Gerardo Arroyo (Flecha Roja Technologies S.A.) -->
-<xs:schema xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.3" vc:minVersion="1.1">
-	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/2008/REC-xmldsig-core-20080610/xmldsig-core-schema.xsd"/>
-	<xs:element name="FacturaElectronica">
+<xs:schema xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/notaDebitoElectronica" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/notaDebitoElectronica" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.3" vc:minVersion="1.1">
+	<xs:element name="NotaDebitoElectronica">
 		<xs:annotation>
-			<xs:documentation>Elemento Raiz de la Facturacion Electrónica</xs:documentation>
+			<xs:documentation>Elemento Raiz de la Nota de Débito</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -35,7 +33,7 @@
 						<xs:documentation>Emisor del documento</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Receptor" type="ReceptorType">
+				<xs:element name="Receptor" type="ReceptorType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Receptor del documento</xs:documentation>
 					</xs:annotation>
@@ -165,6 +163,14 @@
 												<xs:documentation>Número de línea del detalle</xs:documentation>
 											</xs:annotation>
 										</xs:element>
+										<xs:element name="PartidaArancelaria" minOccurs="0">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="15"/>
+													<xs:minLength value="15"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
 										<xs:element name="Codigo" minOccurs="0">
 											<xs:annotation>
 												<xs:documentation>Código de Producto/servicio </xs:documentation>
@@ -202,7 +208,7 @@
 												</xs:restriction>
 											</xs:simpleType>
 										</xs:element>
-										<xs:element name="Detalle">
+										<xs:element name="Detalle" minOccurs="0">
 											<xs:annotation>
 												<xs:documentation>Detalle de la mercancia transferida o servicio prestado</xs:documentation>
 											</xs:annotation>
@@ -246,9 +252,8 @@
 										<xs:element name="MontoTotalLinea" type="DecimalDineroType">
 											<xs:annotation>
 												<xs:documentation>Existe dos maneras de obtener el resultado del campo:
--	Cuando no existe exoneración, se obtiene de la sumatoria de los campos “subtotal”, “monto del impuesto” .
--	Cuando posee una exoneración, se obtiene de la sumatoria de los campos “Subtotal”, “Impuesto Neto”.
-</xs:documentation>
+-	Cuando no existe exoneración, se obtiene de la sumatoria de los campos “subtotal”, “monto del impuesto”
+-	Cuando posee una exoneración, se obtiene de la sumatoria de los campos “Subtotal”, “Impuesto Neto” </xs:documentation>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -515,7 +520,6 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element ref="ds:Signature" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -571,7 +575,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Identificacion" type="IdentificacionType"/>
+			<xs:element name="Identificacion" type="IdentificacionType" minOccurs="0"/>
 			<xs:element name="IdentificacionExtranjero" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Este campo será de condición obligatoria, cuando el cliente lo requiera</xs:documentation>
@@ -843,7 +847,7 @@
 						</xs:enumeration>
 						<xs:enumeration value="03">
 							<xs:annotation>
-								<xs:documentation>Impuesto unico a los combustivos</xs:documentation>
+								<xs:documentation>Impuesto ünico a los combustivos</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
 						<xs:enumeration value="04">
@@ -930,6 +934,11 @@
 					<xs:documentation>Monto del impuesto</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="MontoExportacion" type="DecimalDineroType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Monto de impuesto de exportación.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Exoneracion" type="ExoneracionType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -969,7 +978,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Codigo" minOccurs="0">
+			<xs:element name="Codigo">
 				<xs:annotation>
 					<xs:documentation>Código del producto o servicio</xs:documentation>
 				</xs:annotation>

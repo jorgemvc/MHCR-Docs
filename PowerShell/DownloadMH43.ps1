@@ -1,7 +1,7 @@
 ﻿# @file    ArchivosMH43.ps1
 # @author  Jorge Villalobos Carvajal (jorgemvc@gmail.com)
-# @date    21.May.2019
-# @version 1.1 
+# @date    11.Jun.2020
+# @version 1.2 
 #  
 # @brief   Automatización de la descarga de todos los archivos del Ministerio de Hacienda
 #
@@ -29,8 +29,8 @@ $localDir = "C:\\Temporal\\Hacienda\\v43\\"
     }   
   }  # GenerateFolder
 
-Write-Host "Script: ArchivosMH43.ps1 - v1.1"
-Write-Host "  Por Jorge VC - 2019"
+Write-Host "Script: ArchivosMH43.ps1 - v1.2"
+Write-Host "  Por Jorge VC - Jun.2020"
 Write-Host ""
 
 Write-Host "Verificando el directorio de descarga"
@@ -86,9 +86,9 @@ Download-File "Guia_IdP.pdf"
 Write-Host -NoNewline "."
 Download-File "ANEXOS Y ESTRUCTURAS_V4.3.pdf"
 Write-Host -NoNewline "."
-Download-File "ResolucionComprobantesElectronicosDGT-R-48-2016_4.3.pdf"
+Download-File "Resolución_General_sobre_disposiciones_técnicas_comprobantes_electrónicos_para_efectos_tributarios.pdf"
 Write-Host -NoNewline "."
-Download-File "Modifica_a_la_resolucion_N_DGT_R_48_2016_V4.2.pdf"
+Download-File "REGLAMENTO_DE_COMPROBANTES_ELECTRONICOS.pdf"
 Write-Host -NoNewline "."
 Download-File "Codigodemoneda_V4.3.pdf"
 Write-Host -NoNewline "."

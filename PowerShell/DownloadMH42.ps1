@@ -1,7 +1,7 @@
-﻿# @file    ArchivosMH42.ps1
+# @file    ArchivosMH42.ps1
 # @author  Jorge Villalobos Carvajal (jorgemvc@gmail.com)
-# @date    21.May.2019
-# @version 1.1 
+# @date    09.Ago.2022
+# @version 1.2
 #  
 # @brief   Automatización de la descarga de todos los archivos del Ministerio de Hacienda
 #
@@ -9,7 +9,7 @@
 # ----
 # Constantes con las direcciones de fuente y destino de los archivos a descargar
 #
-$haciendaUrl = "https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2016/v4.2/"
+$haciendaUrl = "https://atv.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2016/v4.2/"
 $localDir = "C:\\Temporal\\Hacienda\\v42\\"
 
   function Download-File {

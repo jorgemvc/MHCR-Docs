@@ -1,7 +1,7 @@
-﻿# @file    ArchivosMH43.ps1
+# @file    ArchivosMH43.ps1
 # @author  Jorge Villalobos Carvajal (jorgemvc@gmail.com)
-# @date    11.Jun.2020
-# @version 1.2 
+# @date    09.Ago.2022
+# @version 1.3 
 #  
 # @brief   Automatización de la descarga de todos los archivos del Ministerio de Hacienda
 #
@@ -9,7 +9,7 @@
 # ----
 # Constantes con las direcciones de fuente y destino de los archivos a descargar
 #
-$haciendaUrl = "https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2016/v4.3/"
+$haciendaUrl = "https://atv.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2016/v4.3/"
 $localDir = "C:\\Temporal\\Hacienda\\v43\\"
 
   function Download-File {
@@ -29,8 +29,8 @@ $localDir = "C:\\Temporal\\Hacienda\\v43\\"
     }   
   }  # GenerateFolder
 
-Write-Host "Script: ArchivosMH43.ps1 - v1.2"
-Write-Host "  Por Jorge VC - Jun.2020"
+Write-Host "Script: ArchivosMH43.ps1 - v1.3"
+Write-Host "  Por Jorge VC - Jun.2022"
 Write-Host ""
 
 Write-Host "Verificando el directorio de descarga"
